@@ -3,324 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nara — Teknik Informatika</title>
+<title>Kelvin Letsen — Teknik Informatika</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #0d0f14;
-    --bg2: #13161e;
-    --bg3: #1a1e2a;
+    --bg: #0d0f14; --bg2: #13161e; --bg3: #1a1e2a;
     --border: rgba(255,255,255,0.08);
-    --accent: #7c6df2;
-    --accent2: #a78bfa;
-    --text: #e8eaf0;
-    --muted: #8890a4;
-    --green: #34d399;
-    --mono: 'Space Mono', monospace;
-    --sans: 'Space Grotesk', sans-serif;
+    --accent: #7c6df2; --accent2: #a78bfa;
+    --text: #e8eaf0; --muted: #8890a4;
+    --green: #34d399; --orange: #fb923c; --blue: #60a5fa;
+    --mono: 'Space Mono', monospace; --sans: 'Space Grotesk', sans-serif;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.7;
-    min-height: 100vh;
-  }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; }
 
   /* NAV */
   nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    z-index: 100;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 1rem 2.5rem;
-    background: rgba(13,15,20,0.85);
-    backdrop-filter: blur(12px);
+    background: rgba(13,15,20,0.88); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 1rem;
-    color: var(--accent2);
-    text-decoration: none;
-  }
+  .nav-logo { font-family: var(--mono); font-size: 1rem; color: var(--accent2); text-decoration: none; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    transition: color 0.2s;
-  }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 6rem 2.5rem 4rem;
-    max-width: 900px; margin: 0 auto;
-  }
-  .hero-inner { width: 100%; }
-  .hero-label {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--accent);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-  }
-  .hero-name {
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 1rem;
-  }
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 6rem 2.5rem 4rem; max-width: 900px; margin: 0 auto; }
+  .hero-label { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem; }
+  .hero-name { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
   .hero-name span { color: var(--accent2); }
-  .hero-desc {
-    font-size: 1.1rem;
-    color: var(--muted);
-    max-width: 520px;
-    margin-bottom: 2.5rem;
-    line-height: 1.75;
-  }
+  .hero-desc { font-size: 1.05rem; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; line-height: 1.8; }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn {
-    display: inline-block;
-    padding: 0.7rem 1.6rem;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-    letter-spacing: 0.01em;
-  }
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-  }
+  .btn { display: inline-block; padding: 0.7rem 1.6rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; cursor: pointer; }
+  .btn-primary { background: var(--accent); color: #fff; border: none; }
   .btn-primary:hover { background: var(--accent2); }
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
   .btn-outline:hover { border-color: var(--accent); color: var(--accent2); }
-
-  .hero-status {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    margin-top: 3rem;
-    font-size: 0.8rem;
-    color: var(--muted);
-    font-family: var(--mono);
-  }
-  .dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--green);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
+  .hero-status { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 3rem; font-size: 0.78rem; color: var(--muted); font-family: var(--mono); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
 
   /* SECTIONS */
-  section {
-    padding: 5rem 2.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .section-label {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--accent);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-  .section-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 2.5rem;
-    letter-spacing: -0.01em;
-  }
+  section { padding: 5rem 2.5rem; max-width: 900px; margin: 0 auto; }
+  .section-label { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .section-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 2.5rem; letter-spacing: -0.01em; }
+  .divider { height: 1px; background: var(--border); max-width: 900px; margin: 0 auto; }
 
   /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-  .skill-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .skill-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-  }
-  .skill-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .skill-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    margin-bottom: 0.25rem;
-  }
-  .skill-level {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+  .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; transition: border-color 0.2s, transform 0.2s; }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .skill-icon { font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .skill-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
+  .skill-level { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.08em; }
 
   /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.25rem;
-  }
-  .project-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.75rem;
-    transition: border-color 0.2s, transform 0.2s;
-    display: flex; flex-direction: column;
-  }
-  .project-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-3px);
-  }
-  .project-tag {
-    display: inline-block;
-    background: rgba(124,109,242,0.15);
-    color: var(--accent2);
-    font-size: 0.7rem;
-    font-family: var(--mono);
-    padding: 0.2rem 0.65rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    letter-spacing: 0.06em;
-  }
-  .project-name {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.01em;
-  }
-  .project-desc {
-    font-size: 0.875rem;
-    color: var(--muted);
-    line-height: 1.65;
-    flex: 1;
-    margin-bottom: 1.5rem;
-  }
-  .project-stack {
-    display: flex; gap: 0.4rem; flex-wrap: wrap;
-    margin-bottom: 1.25rem;
-  }
-  .tech-pill {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 0.7rem;
-    font-family: var(--mono);
-    padding: 0.2rem 0.55rem;
-    border-radius: 4px;
-  }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; transition: border-color 0.2s, transform 0.2s; display: flex; flex-direction: column; }
+  .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .project-card.featured { border-color: rgba(124,109,242,0.4); }
+  .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1rem; gap: 0.5rem; }
+  .project-tag { display: inline-block; font-size: 0.68rem; font-family: var(--mono); padding: 0.2rem 0.65rem; border-radius: 4px; letter-spacing: 0.06em; white-space: nowrap; }
+  .tag-kp { background: rgba(124,109,242,0.15); color: var(--accent2); }
+  .tag-android { background: rgba(52,211,153,0.15); color: var(--green); }
+  .tag-personal { background: rgba(251,146,60,0.15); color: var(--orange); }
+  .project-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+  .project-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; flex: 1; margin-bottom: 1.25rem; }
+  .project-features { list-style: none; margin-bottom: 1.25rem; }
+  .project-features li { font-size: 0.8rem; color: var(--muted); padding: 0.2rem 0; padding-left: 1rem; position: relative; }
+  .project-features li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); }
+  .project-stack { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .tech-pill { background: var(--bg3); border: 1px solid var(--border); color: var(--muted); font-size: 0.68rem; font-family: var(--mono); padding: 0.2rem 0.55rem; border-radius: 4px; }
   .project-links { display: flex; gap: 0.75rem; }
-  .project-link {
-    font-size: 0.8rem;
-    color: var(--accent2);
-    text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    transition: opacity 0.2s;
-  }
+  .project-link { font-size: 0.8rem; color: var(--accent2); text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
   .project-link:hover { opacity: 0.7; }
   .project-link::before { content: '→ '; }
 
   /* ABOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: start;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
   .about-text p { color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
   .about-info { list-style: none; }
-  .about-info li {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.875rem;
-  }
+  .about-info li { display: flex; align-items: baseline; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
   .about-info li:last-child { border-bottom: none; }
-  .info-label {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-    min-width: 80px;
-    text-transform: uppercase;
-  }
+  .info-label { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.08em; min-width: 80px; text-transform: uppercase; }
 
   /* CONTACT */
-  .contact-inner {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 3rem;
-    text-align: center;
-  }
-  .contact-inner h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-  .contact-inner p {
-    color: var(--muted);
-    margin-bottom: 2rem;
-    font-size: 0.95rem;
-  }
-  .contact-links {
-    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-  }
+  .contact-inner { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; text-align: center; }
+  .contact-inner h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+  .contact-inner p { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 2.5rem;
-    text-align: center;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--muted);
-  }
-
-  /* DIVIDER */
-  .divider {
-    height: 1px;
-    background: var(--border);
-    max-width: 900px;
-    margin: 0 auto;
-  }
+  footer { border-top: 1px solid var(--border); padding: 2rem 2.5rem; text-align: center; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
 
   @media (max-width: 640px) {
     nav { padding: 1rem 1.25rem; }
@@ -335,7 +113,7 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">~/nara</a>
+  <a href="#" class="nav-logo">~/kelvin</a>
   <ul class="nav-links">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -346,11 +124,11 @@
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-inner">
-    <p class="hero-label">// Teknik Informatika</p>
-    <h1 class="hero-name">Halo, saya <span>Nara</span> 👋</h1>
+  <div>
+    <p class="hero-label">// Mahasiswa Teknik Informatika</p>
+    <h1 class="hero-name">Halo, saya<br><span>Kelvin Letsen</span> 👋</h1>
     <p class="hero-desc">
-      Mahasiswa Teknik Informatika yang suka membangun aplikasi web. Berpengalaman dengan PHP/Laravel dan pengembangan sistem berbasis database.
+      Mahasiswa Teknik Informatika yang fokus pada pengembangan aplikasi web dan mobile. Berpengalaman membangun sistem kasir berbasis Laravel dan aplikasi Android dengan Kotlin.
     </p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">Lihat Proyek</a>
@@ -367,8 +145,8 @@
 
 <!-- SKILLS -->
 <section id="skills">
-  <p class="section-label">// 01</p>
-  <h2 class="section-title">Teknologi & Skill</h2>
+  <p class="section-label">// Teknologi</p>
+  <h2 class="section-title">Skills & Tools</h2>
   <div class="skills-grid">
     <div class="skill-card">
       <div class="skill-icon">🌐</div>
@@ -391,6 +169,11 @@
       <div class="skill-level">INTERMEDIATE</div>
     </div>
     <div class="skill-card">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">Kotlin (Android)</div>
+      <div class="skill-level">BEGINNER</div>
+    </div>
+    <div class="skill-card">
       <div class="skill-icon">🗄️</div>
       <div class="skill-name">MySQL</div>
       <div class="skill-level">INTERMEDIATE</div>
@@ -400,6 +183,11 @@
       <div class="skill-name">Git & GitHub</div>
       <div class="skill-level">BEGINNER</div>
     </div>
+    <div class="skill-card">
+      <div class="skill-icon">📱</div>
+      <div class="skill-name">Android Studio</div>
+      <div class="skill-level">BEGINNER</div>
+    </div>
   </div>
 </section>
 
@@ -407,34 +195,78 @@
 
 <!-- PROJECTS -->
 <section id="projects">
-  <p class="section-label">// 02</p>
+  <p class="section-label">// Karya</p>
   <h2 class="section-title">Proyek</h2>
   <div class="projects-grid">
 
-    <div class="project-card">
-      <span class="project-tag">KERJA PRAKTIK</span>
+    <!-- Kasirku -->
+    <div class="project-card featured">
+      <div class="project-header">
+        <span class="project-tag tag-kp">KERJA PRAKTIK</span>
+      </div>
       <h3 class="project-name">Kasirku — Sistem Kasir Web</h3>
       <p class="project-desc">
-        Aplikasi kasir berbasis web yang dibangun selama Kerja Praktik. Fitur meliputi manajemen produk, transaksi penjualan, laporan, dan manajemen pengguna.
+        Aplikasi kasir berbasis web yang dibangun selama Kerja Praktik. Mendukung multi-role (Owner & Pegawai) dengan integrasi pembayaran Midtrans.
       </p>
+      <ul class="project-features">
+        <li>Dashboard statistik transaksi & stok real-time</li>
+        <li>Checkout dengan payment gateway Midtrans</li>
+        <li>Manajemen stok batch & log perubahan stok</li>
+        <li>Laporan & nota transaksi dalam format PDF</li>
+        <li>Sistem pembatalan transaksi dengan verifikasi Owner</li>
+      </ul>
       <div class="project-stack">
         <span class="tech-pill">Laravel 10</span>
         <span class="tech-pill">PHP 8.1</span>
         <span class="tech-pill">MySQL</span>
         <span class="tech-pill">Blade</span>
+        <span class="tech-pill">Midtrans</span>
       </div>
       <div class="project-links">
-        <a href="#" class="project-link">GitHub</a>
-        <a href="#" class="project-link">Demo</a>
+        <a href="https://github.com/Kelvins88" class="project-link" target="_blank">GitHub</a>
       </div>
     </div>
 
+    <!-- Larry App -->
     <div class="project-card">
-      <span class="project-tag">SKRIPSI</span>
+      <div class="project-header">
+        <span class="project-tag tag-android">UAS — ANDROID</span>
+      </div>
+      <h3 class="project-name">Hidup Seperti Larry — Android App</h3>
+      <p class="project-desc">
+        Aplikasi Android native yang dibangun dengan Kotlin sebagai tugas akhir mata kuliah. Menampilkan daftar mahasiswa dengan fitur teman dan profil detail.
+      </p>
+      <ul class="project-features">
+        <li>Daftar mahasiswa dengan RecyclerView</li>
+        <li>Fitur Friends dengan manajemen data teman</li>
+        <li>Detail profil mahasiswa lengkap</li>
+        <li>Toggle dark/light mode</li>
+        <li>Koneksi API via Volley + parsing JSON</li>
+      </ul>
+      <div class="project-stack">
+        <span class="tech-pill">Kotlin</span>
+        <span class="tech-pill">Android</span>
+        <span class="tech-pill">ViewPager2</span>
+        <span class="tech-pill">Volley</span>
+        <span class="tech-pill">Gson</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Kelvins88" class="project-link" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Skripsi placeholder -->
+    <div class="project-card">
+      <div class="project-header">
+        <span class="project-tag tag-personal">SKRIPSI</span>
+      </div>
       <h3 class="project-name">Proyek Skripsi</h3>
       <p class="project-desc">
-        Penelitian dan pengembangan sistem sebagai tugas akhir. Detail akan segera diupdate setelah selesai.
+        Penelitian dan pengembangan sistem sebagai tugas akhir. Detail akan diperbarui setelah selesai.
       </p>
+      <ul class="project-features">
+        <li>Sedang dalam pengerjaan</li>
+      </ul>
       <div class="project-stack">
         <span class="tech-pill">Laravel</span>
         <span class="tech-pill">MySQL</span>
@@ -445,20 +277,6 @@
       </div>
     </div>
 
-    <div class="project-card">
-      <span class="project-tag">PERSONAL</span>
-      <h3 class="project-name">Proyek Berikutnya</h3>
-      <p class="project-desc">
-        Slot ini untuk proyek personalmu berikutnya. Tambahkan proyek dari mata kuliah, tugas, atau eksperimen pribadi.
-      </p>
-      <div class="project-stack">
-        <span class="tech-pill">???</span>
-      </div>
-      <div class="project-links">
-        <a href="#" class="project-link">Coming Soon</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -466,38 +284,24 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <p class="section-label">// 03</p>
+  <p class="section-label">// Tentang</p>
   <h2 class="section-title">Tentang Saya</h2>
   <div class="about-grid">
     <div class="about-text">
       <p>
-        Saya mahasiswa Teknik Informatika yang tertarik pada pengembangan aplikasi web, khususnya di sisi backend. Saya senang membangun sistem yang nyata dan dapat digunakan langsung oleh pengguna.
+        Saya mahasiswa Teknik Informatika yang tertarik pada pengembangan aplikasi web dan mobile. Selama kuliah, saya sudah membangun sistem kasir web menggunakan Laravel dan aplikasi Android dengan Kotlin.
       </p>
       <p>
-        Selain coding, saya juga sedang memperdalam pemahaman tentang arsitektur sistem dan database untuk mendukung pengembangan aplikasi yang lebih scalable.
+        Saya suka belajar teknologi baru dan senang ketika hasil kerja saya bisa langsung dipakai oleh pengguna nyata. Saat ini saya sedang menyelesaikan skripsi sambil terus mengembangkan skill di bidang web development.
       </p>
     </div>
     <ul class="about-info">
-      <li>
-        <span class="info-label">Lokasi</span>
-        <span>Surabaya, Jawa Timur</span>
-      </li>
-      <li>
-        <span class="info-label">Jurusan</span>
-        <span>Teknik Informatika</span>
-      </li>
-      <li>
-        <span class="info-label">Focus</span>
-        <span>Web Development</span>
-      </li>
-      <li>
-        <span class="info-label">Status</span>
-        <span>Open to Opportunities</span>
-      </li>
-      <li>
-        <span class="info-label">Email</span>
-        <span>email@kamu.com</span>
-      </li>
+      <li><span class="info-label">Nama</span><span>Kelvin Letsen</span></li>
+      <li><span class="info-label">Lokasi</span><span>Surabaya, Jawa Timur</span></li>
+      <li><span class="info-label">Jurusan</span><span>Teknik Informatika</span></li>
+      <li><span class="info-label">Focus</span><span>Web & Android Dev</span></li>
+      <li><span class="info-label">Status</span><span>Open to Opportunities</span></li>
+      <li><span class="info-label">GitHub</span><span>github.com/Kelvins88</span></li>
     </ul>
   </div>
 </section>
@@ -506,21 +310,21 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <p class="section-label">// 04</p>
-  <h2 class="section-title">Kontak</h2>
+  <p class="section-label">// Kontak</p>
+  <h2 class="section-title">Mari Terhubung</h2>
   <div class="contact-inner">
-    <h3>Mari Berkolaborasi!</h3>
-    <p>Punya proyek menarik atau ingin berdiskusi? Jangan ragu untuk menghubungi saya.</p>
+    <h3>Punya proyek atau pertanyaan?</h3>
+    <p>Jangan ragu untuk menghubungi saya. Saya terbuka untuk kolaborasi, diskusi, maupun peluang kerja.</p>
     <div class="contact-links">
       <a href="mailto:email@kamu.com" class="btn btn-primary">Email Saya</a>
-      <a href="https://github.com/usernamekamu" target="_blank" class="btn btn-outline">GitHub</a>
-      <a href="https://linkedin.com/in/usernamekamu" target="_blank" class="btn btn-outline">LinkedIn</a>
+      <a href="https://github.com/Kelvins88" target="_blank" class="btn btn-outline">GitHub</a>
+      <a href="https://linkedin.com/in/kelvinletsen" target="_blank" class="btn btn-outline">LinkedIn</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>dibuat dengan ❤️ oleh Nara · 2025</p>
+  <p>dibuat dengan ❤️ oleh Kelvin Letsen · 2025</p>
 </footer>
 
 </body>
